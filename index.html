@@ -5,6 +5,30 @@
     <title>Cursos da Alura</title>
 </head>
 <body>
+
+    <script>
+        let teclasPressionadas = [];
+        let temporizador;
+        const codigoSecreto = 'mario';
+
+        // Debounce!
+        window.addEventListener('keyup', (event) => {
+            teclasPressionadas.push(event. key);
+            clearTimeout(temporizador);
+            console.log(teclasPressionadas);
+        
+            const fraseComAsTeclasPressionadas = teclasPressionadas.join('');
+            if (fraseComAsTeclasPressionadas.includes(codigoSecreto)) {
+                alert('Vocé venceu!!!');
+                teclasPressionadas = [];
+            }
+        
+            temporizador = setTimeout(() => {
+                teclasPressionadas = [];
+            }, 500);
+        });
+        </script>
+
     <ul>
         <li>Vagrant</li>
         <li>Docker</li>
